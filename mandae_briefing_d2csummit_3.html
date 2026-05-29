@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Briefing Mandaê · D2C Summit 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --indigo:       #5B6EAD;
+    --indigo-light: #EDF0FA;
+    --indigo-mid:   #B8C2E8;
+    --sage:         #6A9E7F;
+    --sage-light:   #EAF3ED;
+    --coral:        #D4826A;
+    --coral-light:  #FAE9E4;
+    --amber:        #C9A96E;
+    --amber-light:  #FAF2E3;
+    --lavender:     #8B7FB8;
+    --lavender-lt:  #EDEAF7;
+    --stone:        #E4E2DC;
+    --off-white:    #F7F6F2;
+    --cream:        #FAFAF7;
+    --dark:         #1E1D1A;
+    --text:         #2A2926;
+    --muted:        #6B6860;
+    --hint:         #9C9890;
+    --white:        #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 14px;
+  }
+
+  /* ── TOP HEADER ── */
+  .doc-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--stone);
+    padding: 28px 48px 22px;
+  }
+  .doc-header-meta {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--indigo);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .doc-header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    color: var(--dark);
+    font-weight: 400;
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .doc-header-sub {
+    font-size: 13px;
+    color: var(--muted);
+  }
+  .doc-header-sub span { margin: 0 6px; opacity: .4; }
+
+  /* ── LEGEND PILLS ── */
+  .legend-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--stone);
+    padding: 12px 48px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .legend-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .legend-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── LAYOUT ── */
+  .layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: calc(100vh - 120px);
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    background: var(--white);
+    border-right: 1px solid var(--stone);
+    padding: 32px 0;
+    position: sticky;
+    top: 0;
+    height: calc(100vh - 120px);
+    overflow-y: auto;
+  }
+  .sidebar-section {
+    padding: 0 20px;
+    margin-bottom: 28px;
+  }
+  .sidebar-label {
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--hint);
+    font-weight: 600;
+    margin-bottom: 10px;
+    padding: 0 4px;
+  }
+  .sidebar-nav a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--muted);
+    font-size: 13px;
+    transition: all 0.15s;
+    margin-bottom: 1px;
+  }
+  .sidebar-nav a:hover,
+  .sidebar-nav a.active {
+    background: var(--off-white);
+    color: var(--dark);
+  }
+  .sidebar-nav a .nav-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .participant-list { padding: 0 4px; }
+  .participant {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 8px;
+    border-radius: 6px;
+    margin-bottom: 2px;
+  }
+  .avatar {
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 600; color: white;
+    flex-shrink: 0;
+  }
+  .participant-name { font-size: 12px; color: var(--text); line-height: 1.3; }
+  .participant-org { font-size: 10.5px; color: var(--hint); }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    padding: 40px 52px;
+    max-width: 860px;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    margin-top: 40px;
+  }
+  .section-label:first-child { margin-top: 0; }
+  .section-label-line {
+    flex: 1;
+    height: 1px;
+    background: var(--stone);
+  }
+  .section-label-text {
+    font-size: 9.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--hint);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ── RESUMO CARDS ── */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+  .summary-card {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .summary-card-label {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hint);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .summary-card-value {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--dark);
+    line-height: 1.1;
+    margin-bottom: 4px;
+  }
+  .summary-card-sub {
+    font-size: 11.5px;
+    color: var(--muted);
+  }
+
+  /* ── PILLARS ── */
+  .pillar {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 10px;
+    border-left: 3px solid transparent;
+  }
+  .pillar-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .pillar-badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 20px;
+  }
+  .pillar-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+  }
+  .pillar-body {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── DECISÕES NUMBERED LIST ── */
+  .decision-list { list-style: none; }
+  .decision-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--stone);
+    align-items: flex-start;
+  }
+  .decision-item:last-child { border-bottom: none; }
+  .decision-num {
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--indigo-light);
+    color: var(--indigo);
+    font-size: 11px;
+    font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .decision-text { font-size: 13px; color: var(--text); line-height: 1.6; }
+  .decision-text strong { color: var(--dark); }
+
+  /* ── PRÓXIMAS ETAPAS ── */
+  .tasks-list { list-style: none; }
+  .task-item {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--off-white);
+    align-items: flex-start;
+  }
+  .task-item:last-child { border-bottom: none; }
+  .task-check {
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--stone);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+    background: var(--white);
+  }
+  .task-owner {
+    display: inline-block;
+    background: var(--indigo-light);
+    color: var(--indigo);
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 4px;
+    margin-right: 6px;
+    white-space: nowrap;
+  }
+  .task-owner.sage  { background: var(--sage-light);   color: var(--sage); }
+  .task-owner.amber { background: var(--amber-light);  color: var(--amber); }
+  .task-owner.coral { background: var(--coral-light);  color: var(--coral); }
+  .task-owner.lav   { background: var(--lavender-lt);  color: var(--lavender); }
+  .task-text { font-size: 13px; color: var(--text); line-height: 1.6; }
+
+  /* ── GANTT ── */
+  .gantt-wrap {
+    background: var(--white);
+    border: 1px solid var(--stone);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 8px;
+  }
+  .gantt-header-row {
+    display: grid;
+    background: var(--off-white);
+    border-bottom: 1px solid var(--stone);
+    padding: 0;
+  }
+  .gantt-title-col {
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hint);
+    font-weight: 600;
+    padding: 10px 16px;
+    border-right: 1px solid var(--stone);
+  }
+  .gantt-months {
+    display: flex;
+    overflow: hidden;
+  }
+  .gantt-month {
+    flex: 1;
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 10px 4px;
+    border-right: 1px solid var(--stone);
+  }
+  .gantt-month:last-child { border-right: none; }
+  .gantt-month.current { color: var(--indigo); background: var(--indigo-light); }
+
+  .gantt-row {
+    display: grid;
+    border-bottom: 1px solid var(--off-white);
+    align-items: center;
+    min-height: 44px;
+  }
+  .gantt-row:last-child { border-bottom: none; }
+  .gantt-row-label {
+    padding: 10px 16px;
+    border-right: 1px solid var(--stone);
+    font-size: 12.5px;
+    color: var(--text);
+    line-height: 1.4;
+  }
+  .gantt-row-label small {
+    display: block;
+    font-size: 11px;
+    color: var(--hint);
+    margin-top: 1px;
+  }
+  .gantt-track {
+    display: flex;
+    align-items: center;
+    padding: 0 6px;
+    position: relative;
+    height: 100%;
+  }
+  .gantt-bar {
+    height: 20px;
+    border-radius: 4px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    padding: 0 8px;
+    font-size: 10.5px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    color: white;
+    letter-spacing: 0.02em;
+  }
+  .gantt-milestone {
+    position: absolute;
+    width: 12px; height: 12px;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    margin-left: -6px;
+  }
+  .gantt-milestone-label {
+    position: absolute;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--muted);
+    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 10px;
+  }
+  /* Today line */
+  .today-line {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 1.5px;
+    background: var(--coral);
+    z-index: 10;
+    pointer-events: none;
+  }
+  .today-label {
+    position: absolute;
+    top: -20px;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--coral);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
+  /* ── ALERT BOX ── */
+  .alert-box {
+    background: var(--amber-light);
+    border-left: 3px solid var(--amber);
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .alert-box strong { color: var(--dark); }
+
+  /* ── FOOTER ── */
+  .doc-footer {
+    border-top: 1px solid var(--stone);
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11.5px;
+    color: var(--hint);
+    background: var(--white);
+  }
+
+  /* ── STICKY HEADER BAR (small) ── */
+  .sticky-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--stone);
+    padding: 10px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .sticky-bar-title { font-size: 13px; font-weight: 600; color: var(--dark); }
+  .sticky-cta {
+    background: var(--dark);
+    color: white;
+    border: none;
+    padding: 7px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.02em;
+  }
+
+  /* ── CHIPS ── */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    border: 1px solid transparent;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 1px solid var(--stone);
+    margin: 32px 0;
+  }
+
+  /* ── COST TABS ── */
+  .cost-tab {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 9px 18px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    margin-bottom: -1px;
+    transition: all 0.15s;
+  }
+  .cost-tab:hover { color: var(--dark); }
+  .cost-tab.active { color: var(--indigo); border-bottom-color: var(--indigo); font-weight: 600; }
+
+  .cost-tab-content { padding: 0; }
+
+  /* ── COST TABLE ── */
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    margin-top: 0;
+  }
+  .cost-table thead tr {
+    background: var(--off-white);
+    border-bottom: 1px solid var(--stone);
+  }
+  .cost-table th {
+    padding: 9px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--hint);
+    text-align: left;
+  }
+  .cost-table td {
+    padding: 8px 12px;
+    color: var(--text);
+    border-bottom: 1px solid var(--off-white);
+    vertical-align: middle;
+  }
+  .cost-table tr:last-child td { border-bottom: none; }
+  .cost-table tr.alt td { background: var(--off-white); }
+  .cost-table tr.total-row td {
+    background: var(--indigo-light);
+    font-weight: 600;
+    border-top: 1px solid var(--indigo-mid);
+  }
+  .bar-mini {
+    height: 6px;
+    border-radius: 3px;
+    background: var(--indigo);
+    opacity: 0.7;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .cat-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+</style>
+</head>
+<body>
+
+<!-- ── DOC HEADER ── -->
+<div class="doc-header">
+  <div class="doc-header-meta">Mandaê · D2C Summit 2026</div>
+  <h1>Briefing de Estande & Ativação</h1>
+  <div class="doc-header-sub">
+    Reunião de alinhamento
+    <span>·</span>
+    29 mai. 2026
+    <span>·</span>
+    MCI × Nuvemshop × Mandaê
+  </div>
+</div>
+
+<!-- ── LEGEND ── -->
+<div class="legend-bar">
+  <span class="legend-pill"><span class="legend-dot" style="background:var(--indigo)"></span>Orçamento</span>
+  <span class="legend-pill"><span class="legend-dot" style="background:var(--sage)"></span>Posicionamento</span>
+  <span class="legend-pill"><span class="legend-dot" style="background:var(--coral)"></span>Ativação</span>
+  <span class="legend-pill"><span class="legend-dot" style="background:var(--amber)"></span>Logística</span>
+  <span class="legend-pill"><span class="legend-dot" style="background:var(--lavender)"></span>Próx. etapas</span>
+</div>
+
+<!-- ── STICKY BAR ── -->
+<div class="sticky-bar">
+  <span class="sticky-bar-title">Briefing Mandaê · D2C Summit 2026</span>
+  <div style="display:flex;gap:10px;align-items:center;">
+    <span class="chip" style="background:var(--sage-light);color:var(--sage);border-color:var(--sage-light)">● Em andamento</span>
+    <button class="sticky-cta" onclick="window.print()">Exportar PDF</button>
+  </div>
+</div>
+
+<!-- ── MAIN LAYOUT ── -->
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-label">Navegação</div>
+      <div class="sidebar-nav">
+        <a href="#resumo" class="active"><span class="nav-dot" style="background:var(--indigo)"></span>Resumo executivo</a>
+        <a href="#pilares"><span class="nav-dot" style="background:var(--sage)"></span>Pilares estratégicos</a>
+        <a href="#decisoes"><span class="nav-dot" style="background:var(--coral)"></span>Decisões tomadas</a>
+        <a href="#etapas"><span class="nav-dot" style="background:var(--lavender)"></span>Próximas etapas</a>
+        <a href="#gantt"><span class="nav-dot" style="background:var(--amber)"></span>Cronograma Gantt</a>
+        <a href="#custos"><span class="nav-dot" style="background:var(--indigo)"></span>Relatório de Custos</a>
+        <a href="#contexto"><span class="nav-dot" style="background:var(--hint)"></span>Contexto da reunião</a>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Participantes</div>
+      <div class="participant-list">
+        <div class="participant">
+          <div class="avatar" style="background:var(--indigo)">MM</div>
+          <div><div class="participant-name">Matheus Machado</div><div class="participant-org">Nuvemshop · MCI</div></div>
+        </div>
+        <div class="participant">
+          <div class="avatar" style="background:var(--lavender)">TM</div>
+          <div><div class="participant-name">Thammer Manzoni</div><div class="participant-org">Mandaê</div></div>
+        </div>
+        <div class="participant">
+          <div class="avatar" style="background:var(--sage)">FR</div>
+          <div><div class="participant-name">Fernanda Ribeiro</div><div class="participant-org">Mandaê</div></div>
+        </div>
+        <div class="participant">
+          <div class="avatar" style="background:var(--coral)">VB</div>
+          <div><div class="participant-name">Vanessa Barbosa</div><div class="participant-org">Nuvemshop</div></div>
+        </div>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- ── RESUMO ── -->
+    <div id="resumo">
+      <div class="section-label">
+        <span class="section-label-text">Resumo executivo</span>
+        <div class="section-label-line"></div>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-card" style="border-left:3px solid var(--indigo)">
+          <div class="summary-card-label">Budget previsto</div>
+          <div class="summary-card-value">R$ 245k</div>
+          <div class="summary-card-sub">Reservado pela Nuvemshop</div>
+        </div>
+        <div class="summary-card" style="border-left:3px solid var(--sage)">
+          <div class="summary-card-label">Área do estande</div>
+          <div class="summary-card-value">40 m²</div>
+          <div class="summary-card-sub">Mesmo tamanho de 2025</div>
+        </div>
+        <div class="summary-card" style="border-left:3px solid var(--coral)">
+          <div class="summary-card-label">Decisão pendente</div>
+          <div class="summary-card-value">Esteira</div>
+          <div class="summary-card-sub">Aguarda alinhamento C-level</div>
+        </div>
+      </div>
+
+      <div class="alert-box">
+        <strong>Contexto-chave:</strong> Em 2025, o evento não estava no budget da Mandaê — os gastos surgiram em cima da hora e chegaram a 2,5× o valor inicialmente estimado. Esta edição parte com planejamento antecipado e verba já reservada pela Nuvemshop, cobrindo todos os custos objetivos do estande.
+      </div>
+    </div>
+
+    <!-- ── PILARES ── -->
+    <div id="pilares">
+      <div class="section-label" style="margin-top:36px">
+        <span class="section-label-text">Pilares estratégicos</span>
+        <div class="section-label-line"></div>
+      </div>
+
+      <div class="pillar" style="border-left-color:var(--indigo)">
+        <div class="pillar-header">
+          <span class="pillar-badge" style="background:var(--indigo-light);color:var(--indigo)">Orçamento</span>
+          <span class="pillar-title">Budget e logística financeira</span>
+        </div>
+        <div class="pillar-body">A Nuvemshop reservou <strong>R$ 245 mil</strong> — equivalente ao total gasto em 2025 — para cobrir todos os custos do estande Mandaê. O chão não é cobrado da equipe. Valores adicionais (brindes extras, jantar de time etc.) são responsabilidade da Mandaê, mas já existe tempo hábil para planejamento com inteligência de custo.</div>
+      </div>
+
+      <div class="pillar" style="border-left-color:var(--sage)">
+        <div class="pillar-header">
+          <span class="pillar-badge" style="background:var(--sage-light);color:var(--sage)">Posicionamento</span>
+          <span class="pillar-title">Marca Mandaê × Nuvem Envios</span>
+        </div>
+        <div class="pillar-body">Após discussão interna, foi decidido <strong>manter a marca Mandaê</strong>. Razões: (1) marca bem posicionada com alto reconhecimento de mercado mesmo sem investimento em redes sociais; (2) 33% do faturamento vem de clientes fora da Nuvemshop — Shopify, VTEX, VNDA etc.; (3) a Mandaê funciona como <em>cavalo de troia</em> em outras plataformas, gerando 13% do faturamento Next em 2025 via migração de clientes. A estratégia é posicionar a Mandaê como <strong>coração da logística do ecossistema</strong>, conectada visualmente ao estande Nuvemshop.</div>
+      </div>
+
+      <div class="pillar" style="border-left-color:var(--coral)">
+        <div class="pillar-header">
+          <span class="pillar-badge" style="background:var(--coral-light);color:var(--coral)">Ativação</span>
+          <span class="pillar-title">Esteira logística — decisão pendente</span>
+        </div>
+        <div class="pillar-body">A esteira foi o <strong>item de maior NPS</strong> no estande Nuvemshop em 2025. A ideia é posicioná-la no estande Mandaê (ao lado do estande Nuvemshop), fazendo o link visual entre as marcas. <strong>Porém:</strong> com esteira, o espaço precisaria praticamente dobrar. Essa decisão depende do alinhamento de posicionamento com o C-level (Sant). Ideia inovadora: ao final da esteira, o cliente receberia um brinde entregue em casa pela própria logística Mandaê — demonstrando a solução em ação.</div>
+      </div>
+
+      <div class="pillar" style="border-left-color:var(--amber)">
+        <div class="pillar-header">
+          <span class="pillar-badge" style="background:var(--amber-light);color:var(--amber)">Logística</span>
+          <span class="pillar-title">Layout, sinergia e comunicação de marca</span>
+        </div>
+        <div class="pillar-body">O estande Mandaê estará <strong>ao lado do estande Nuvemshop</strong>, com conexão física e narrativa. Testeira alta mantida (alta visibilidade). Circulação aberta (sem muitas paredes). Mesas bistrô para atendimento comercial. O briefing criativo para a MCI só pode ser fechado <strong>após a decisão sobre a esteira</strong>, pois impacta diretamente dimensão, planta e comunicação visual.</div>
+      </div>
+    </div>
+
+    <!-- ── DECISÕES ── -->
+    <div id="decisoes">
+      <div class="section-label" style="margin-top:36px">
+        <span class="section-label-text">Decisões tomadas na reunião</span>
+        <div class="section-label-line"></div>
+      </div>
+
+      <ul class="decision-list">
+        <li class="decision-item">
+          <div class="decision-num">1</div>
+          <div class="decision-text"><strong>Marca Mandaê mantida.</strong> Plano de posicionamento será estruturado por Laiza e Flávia (marketing). Comunicação conectando Mandaê × Nuvem Envios será trabalhada no estande.</div>
+        </li>
+        <li class="decision-item">
+          <div class="decision-num">2</div>
+          <div class="decision-text"><strong>Budget de R$ 245k reservado pela Nuvemshop.</strong> O valor cobre todos os custos objetivos do estande — chão não é cobrado da Mandaê. Conforme detalhado no relatório de custos deste documento, o orçamento 2026 previsto totaliza <strong>R$ 228.334,20</strong>, distribuídos em: Cenografia R$ 165.600 · Mobiliário R$ 936 · Equipamentos R$ 30.870 · A&amp;B R$ 8.769 · Material Gráfico R$ 400 · Brindes R$ 9.905 · Confecção R$ 9.094 · Equipe R$ 2.560. Veja o detalhamento completo na seção <a href="#custos" style="color:var(--indigo);text-decoration:underline">Relatório de Custos</a> abaixo.</div>
+        </li>
+        <li class="decision-item">
+          <div class="decision-num">3</div>
+          <div class="decision-text"><strong>Posição do estande confirmada:</strong> ao lado do espaço Nuvemshop, no coração da feira de negócios. Mesmas dimensões de 2025 (40 m²) como baseline — podendo aumentar se houver esteira.</div>
+        </li>
+        <li class="decision-item">
+          <div class="decision-num">4</div>
+          <div class="decision-text"><strong>Decisão sobre esteira adiada</strong> para após alinhamento com C-level (Sant/Thammer). Impacta diretamente tamanho do espaço e briefing criativo.</div>
+        </li>
+        <li class="decision-item">
+          <div class="decision-num">5</div>
+          <div class="decision-text"><strong>Lista espelho de ingressos</strong> será configurada para times Mandaê e Nuvem Envios, com programa de comissionamento proporcional a contratos fechados.</div>
+        </li>
+        <li class="decision-item">
+          <div class="decision-num">6</div>
+          <div class="decision-text"><strong>Reunião de seguimento</strong> agendada para após o Connect (≥ 12 jun.), quando Thammer e Fernanda terão alinhado posicionamento e decisão de esteira com liderança.</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ── PRÓXIMAS ETAPAS ── -->
+    <div id="etapas">
+      <div class="section-label" style="margin-top:36px">
+        <span class="section-label-text">Próximas etapas</span>
+        <div class="section-label-line"></div>
+      </div>
+
+      <ul class="tasks-list">
+        <li class="task-item">
+          <div class="task-check"></div>
+          <div class="task-text"><span class="task-owner coral">Vanessa</span> Compartilhar deck comercial do evento com parceiros estratégicos para vendas de cotas de patrocínio e apresentação do evento — <a href="https://docs.google.com/presentation/d/1_jrhrkCAGgqXZcacL3kkdmYgaeE8bLXqsUG1nHVG_LQ/edit?slide=id.g39e845739e6_2_153#slide=id.g39e845739e6_2_153" target="_blank" style="color:var(--indigo);text-decoration:none;font-size:11.5px;font-weight:500;display:inline-flex;align-items:center;gap:3px;vertical-align:middle">📎 Abrir Proposta Comercial 2026 ↗</a></div>
+        </li>
+        <li class="task-item">
+          <div class="task-check"></div>
+          <div class="task-text"><span class="task-owner coral">Vanessa</span> Contatar Afonso Log para garantir presença e envolvimento no evento</div>
+        </li>
+        <li class="task-item">
+          <div class="task-check"></div>
+          <div class="task-text"><span class="task-owner sage">Thammer</span> Alinhar com Sant e liderança a proposta de posicionamento da marca e decisão sobre esteira no estande</div>
+        </li>
+        <li class="task-item">
+          <div class="task-check"></div>
+          <div class="task-text"><span class="task-owner">Fernanda</span> Contatar Lari (RevOps) para organizar peças e banners de divulgação do evento para clientes</div>
+        </li>
+        <li class="task-item">
+          <div class="task-check"></div>
+          <div class="task-text"><span class="task-owner">Fernanda</span> Enviar lista de parceiros e clientes para cortesias de ingressos — incluir: <strong>nome completo, telefone, nome da empresa e e-mail</strong></div>
+        </li>
+        <li class="task-item">
+          <div class="task-check"></div>
+          <div class="task-text"><span class="task-owner">Fernanda</span> Analisar a mecânica da ação e material de apresentação compartilhados com o comercial para venda de ingressos com comissionamento no onboarding de novos clientes (plano Escala)
+            <div style="display:flex;gap:8px;margin-top:6px;flex-wrap:wrap;">
+              <a href="https://docs.google.com/presentation/d/1DBD1eARbPpz5tk7r1MAZa8AvkOlQKp60EOGUwDPKBK8/edit?slide=id.g3dfaf6addf0_0_0#slide=id.g3dfaf6addf0_0_0" target="_blank" style="color:var(--indigo);text-decoration:none;font-size:11.5px;font-weight:500;display:inline-flex;align-items:center;gap:3px;background:var(--indigo-light);padding:3px 9px;border-radius:4px">📊 Slides — Apresentação da campanha ↗</a>
+              <a href="https://docs.google.com/document/d/11ZGUT7YnyLyt0S1H2mtKmXP9amDkA5BykPKEMD1mfIQ/edit?tab=t.0" target="_blank" style="color:var(--sage);text-decoration:none;font-size:11.5px;font-weight:500;display:inline-flex;align-items:center;gap:3px;background:var(--sage-light);padding:3px 9px;border-radius:4px">📄 Documento — Mecânica da ação ↗</a>
+            </div>
+          </div>
+        </li>
+        <li class="task-item">
+          <div class="task-check"></div>
+          <div class="task-text"><span class="task-owner lav">Grupo</span> Reunião de seguimento pós-Connect (≥ 12 jun.) para decisão final sobre esteira e kick-off do briefing criativo com MCI</div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ── GANTT ── -->
+    <div id="gantt">
+      <div class="section-label" style="margin-top:40px">
+        <span class="section-label-text">Cronograma — Gantt</span>
+        <div class="section-label-line"></div>
+      </div>
+
+      <div class="alert-box" style="margin-bottom:16px">
+        <strong>Lógica do cronograma:</strong> O briefing criativo com a MCI só pode ser iniciado após a decisão sobre a esteira, que depende do alinhamento de Thammer e Fernanda com C-levels. Janela crítica: <strong>pós-Connect (≥ 12 jun.)</strong>.
+      </div>
+
+      <!-- Gantt table -->
+      <div class="gantt-wrap" id="ganttTable">
+        <!-- Built by JS below -->
+      </div>
+
+      <div style="display:flex;gap:20px;margin-top:12px;flex-wrap:wrap;">
+        <span class="legend-pill"><span style="display:inline-block;width:28px;height:8px;border-radius:3px;background:var(--indigo);margin-right:4px;vertical-align:middle"></span>Orçamento / Logística</span>
+        <span class="legend-pill"><span style="display:inline-block;width:28px;height:8px;border-radius:3px;background:var(--sage);margin-right:4px;vertical-align:middle"></span>Posicionamento</span>
+        <span class="legend-pill"><span style="display:inline-block;width:28px;height:8px;border-radius:3px;background:var(--coral);margin-right:4px;vertical-align:middle"></span>Ativação / Criativo</span>
+        <span class="legend-pill"><span style="display:inline-block;width:28px;height:8px;border-radius:3px;background:var(--amber);margin-right:4px;vertical-align:middle"></span>Produção</span>
+        <span style="font-size:11px;color:var(--hint);display:flex;align-items:center;gap:5px;"><span style="display:inline-block;width:10px;height:10px;background:var(--coral);transform:rotate(45deg);border-radius:2px"></span>Marco</span>
+      </div>
+    </div>
+
+    <!-- ── RELATÓRIO DE CUSTOS ── -->
+    <div id="custos">
+      <hr class="divider"/>
+      <div class="section-label">
+        <span class="section-label-text">Relatório de custos — Referência 2025 / Previsão 2026</span>
+        <div class="section-label-line"></div>
+      </div>
+
+      <!-- Summary cards -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;">
+        <div class="summary-card" style="border-left:3px solid var(--indigo)">
+          <div class="summary-card-label">Total realizado 2025</div>
+          <div class="summary-card-value" style="font-size:18px">R$ 248.478</div>
+          <div class="summary-card-sub">17 itens</div>
+        </div>
+        <div class="summary-card" style="border-left:3px solid var(--sage)">
+          <div class="summary-card-label">Total previsto 2026</div>
+          <div class="summary-card-value" style="font-size:18px">R$ 228.334</div>
+          <div class="summary-card-sub">▼ 8,1% vs 2025 · 16 itens</div>
+        </div>
+        <div class="summary-card" style="border-left:3px solid var(--coral)">
+          <div class="summary-card-label">Cenografia + Mob. 2026</div>
+          <div class="summary-card-value" style="font-size:18px">R$ 166.536</div>
+          <div class="summary-card-sub">▼ 10,8% vs 2025</div>
+        </div>
+        <div class="summary-card" style="border-left:3px solid var(--amber)">
+          <div class="summary-card-label">Equipamentos 2026</div>
+          <div class="summary-card-value" style="font-size:18px">R$ 30.870</div>
+          <div class="summary-card-sub">Tablets + frete inclusos</div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div style="display:flex;gap:0;margin-bottom:0;border-bottom:1px solid var(--stone);">
+        <button class="cost-tab active" data-tab="resumo25" onclick="switchTab(this,'resumo25')">Resumo 2025</button>
+        <button class="cost-tab" data-tab="itens25" onclick="switchTab(this,'itens25')">Itemização 2025</button>
+        <button class="cost-tab" data-tab="comp26" onclick="switchTab(this,'comp26')">Comparativo 2025 vs 2026</button>
+        <button class="cost-tab" data-tab="detalhe26" onclick="switchTab(this,'detalhe26')">Detalhamento 2026</button>
+      </div>
+
+      <!-- Tab: Resumo 2025 -->
+      <div id="tab-resumo25" class="cost-tab-content" style="display:block">
+        <table class="cost-table">
+          <thead><tr><th>Categoria</th><th style="text-align:right">Valor</th><th style="text-align:right">Participação</th><th style="min-width:120px">Proporção</th></tr></thead>
+          <tbody id="resumo25Body"></tbody>
+        </table>
+      </div>
+
+      <!-- Tab: Itemização -->
+      <div id="tab-itens25" class="cost-tab-content" style="display:none">
+        <table class="cost-table">
+          <thead><tr><th>Item</th><th>Categoria</th><th style="text-align:right">Valor</th></tr></thead>
+          <tbody id="itens25Body"></tbody>
+        </table>
+      </div>
+
+      <!-- Tab: Comparativo 2026 -->
+      <div id="tab-comp26" class="cost-tab-content" style="display:none">
+        <table class="cost-table">
+          <thead><tr><th>Categoria</th><th style="text-align:right">2025 realizado</th><th style="text-align:right">2026 previsto</th><th style="text-align:right">Variação</th></tr></thead>
+          <tbody>
+            <tr><td>Cenografia e Ambientação</td><td style="text-align:right">R$ 184.000</td><td style="text-align:right">R$ 165.600</td><td style="text-align:right;color:var(--sage);font-weight:600">▼ 10,0%</td></tr>
+            <tr class="alt"><td>Mobiliário</td><td style="text-align:right">R$ 900</td><td style="text-align:right">R$ 936</td><td style="text-align:right;color:var(--coral);font-weight:600">▲ 4,0%</td></tr>
+            <tr><td>Equipamentos</td><td style="text-align:right">R$ 30.540</td><td style="text-align:right">R$ 30.870</td><td style="text-align:right;color:var(--coral);font-weight:600">▲ 1,1%</td></tr>
+            <tr class="alt"><td>A&amp;B</td><td style="text-align:right">R$ 8.262</td><td style="text-align:right">R$ 8.769</td><td style="text-align:right;color:var(--coral);font-weight:600">▲ 6,1%</td></tr>
+            <tr><td>Material Gráfico</td><td style="text-align:right">R$ 400</td><td style="text-align:right">R$ 400</td><td style="text-align:right;color:var(--hint)">—</td></tr>
+            <tr class="alt"><td>Brindes (Sacola)</td><td style="text-align:right">R$ 9.800</td><td style="text-align:right">R$ 9.905</td><td style="text-align:right;color:var(--coral);font-weight:600">▲ 1,1%</td></tr>
+            <tr><td>Confecção (Camisetas)</td><td style="text-align:right">R$ 9.094</td><td style="text-align:right">R$ 9.094</td><td style="text-align:right;color:var(--hint)">—</td></tr>
+            <tr class="alt"><td>Equipe / Serviços</td><td style="text-align:right">R$ 3.292</td><td style="text-align:right">R$ 2.560</td><td style="text-align:right;color:var(--sage);font-weight:600">▼ 22,2%</td></tr>
+            <tr class="total-row"><td><strong>Total</strong></td><td style="text-align:right"><strong>R$ 248.478</strong></td><td style="text-align:right"><strong>R$ 228.334</strong></td><td style="text-align:right;color:var(--sage);font-weight:700">▼ 8,1%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tab: Detalhamento 2026 -->
+      <div id="tab-detalhe26" class="cost-tab-content" style="display:none">
+        <div style="padding:12px 0 4px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
+          <span style="font-size:12px;color:var(--muted)">16 itens · Total: <strong style="color:var(--dark)">R$ 228.334,20</strong></span>
+          <div style="display:flex;gap:6px;">
+            <span class="chip" style="background:var(--indigo-light);color:var(--indigo);border-color:var(--indigo-mid)">Previsão</span>
+            <span class="chip" style="background:var(--sage-light);color:var(--sage);border-color:var(--sage-mid)">Orçamento</span>
+          </div>
+        </div>
+        <table class="cost-table" id="detalhe26Table">
+          <thead>
+            <tr>
+              <th style="width:36px">#</th>
+              <th style="width:72px">Tipo</th>
+              <th>Descrição</th>
+              <th>Categoria</th>
+              <th style="text-align:right">Qtd</th>
+              <th style="text-align:right">Dias</th>
+              <th style="text-align:right">Unit.</th>
+              <th style="text-align:right">Total</th>
+            </tr>
+          </thead>
+          <tbody id="detalhe26Body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ── CONTEXTO ── -->
+    <div id="contexto">
+      <hr class="divider"/>
+      <div class="section-label">
+        <span class="section-label-text">Contexto adicional</span>
+        <div class="section-label-line"></div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+        <div class="pillar" style="border-left-color:var(--sage)">
+          <div class="pillar-header"><span class="pillar-badge" style="background:var(--sage-light);color:var(--sage)">NPS 2025</span></div>
+          <div class="pillar-body">A esteira foi o elemento de maior destaque no NPS do estande Nuvemshop. A testeira alta garantiu visibilidade a distância. Circulação aberta foi bem avaliada. Faltaram <strong>vendedores qualificados</strong> para falar de todas as BUs.</div>
+        </div>
+        <div class="pillar" style="border-left-color:var(--indigo)">
+          <div class="pillar-header"><span class="pillar-badge" style="background:var(--indigo-light);color:var(--indigo)">D2C 2026</span></div>
+          <div class="pillar-body">Novo layout da feira distribui palcos pelos corredores para estimular circulação. <strong>Espaço Partner</strong> (mini auditório 30–40 lugares) para expositores. Ingresso Backstage R$ 5.000 (mentorias + acesso VIP) para posicionamento aspiracional.</div>
+        </div>
+      </div>
+
+      <div class="pillar" style="border-left-color:var(--lavender)">
+        <div class="pillar-header"><span class="pillar-badge" style="background:var(--lavender-lt);color:var(--lavender)">Sinergia comercial</span></div>
+        <div class="pillar-body">13% do faturamento Next 2025 veio de clientes Mandaê migrados para a plataforma. A Mandaê tem mais de 50 plataformas integradas (Shopify, VTEX, VNDA…). O estande é oportunidade para treinar equipes a venderem o ecossistema completo — demanda um <strong>chamado de cima para baixo</strong> da liderança para disseminar o movimento inter-BUs.</div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="doc-footer">
+  <span>Mandaê × MCI × Nuvemshop · Briefing D2C Summit 2026 · 29 mai. 2026</span>
+  <span>Gerado por IA com base na transcrição da reunião</span>
+</div>
+
+<script>
+// ── GANTT ENGINE ──────────────────────────────────────────────────────────────
+// Timeline: Mai 29 → Set 30, 2026 (~18 semanas)
+// Each month = equal column. Today = 29 mai
+
+const months = [
+  { key: 'mai', label: 'Mai', days: 31, start: new Date(2026,4,1) },
+  { key: 'jun', label: 'Jun', days: 30, start: new Date(2026,5,1) },
+  { key: 'jul', label: 'Jul', days: 31, start: new Date(2026,6,1) },
+  { key: 'ago', label: 'Ago', days: 31, start: new Date(2026,7,1) },
+  { key: 'set', label: 'Set', days: 30, start: new Date(2026,8,1) },
+];
+
+const timelineStart = new Date(2026, 4, 1);   // 1 Mai
+const timelineEnd   = new Date(2026, 8, 30);  // 30 Set
+const totalDays     = (timelineEnd - timelineStart) / 86400000;
+const today         = new Date(2026, 4, 29);  // 29 Mai
+
+function pct(date) {
+  const d = (new Date(date) - timelineStart) / 86400000;
+  return Math.max(0, Math.min(100, d / totalDays * 100));
+}
+function pctSpan(start, end) {
+  return pct(end) - pct(start);
+}
+
+const TRACK_W = 68; // % of gantt-row allocated to the track (vs label)
+const LABEL_W = 32;
+
+const rows = [
+  // Fase 1 — Alinhamento interno
+  {
+    label: 'Briefing inicial & docs', sub: 'Matheus / Vanessa',
+    bars: [{ s:'2026-05-29', e:'2026-06-05', color:'var(--indigo)', text:'Envio de materiais' }],
+    milestones: []
+  },
+  {
+    label: 'Alinhamento posicionamento', sub: 'Thammer & Fernanda + C-levels',
+    bars: [{ s:'2026-05-29', e:'2026-06-12', color:'var(--sage)', text:'Alinhamento interno' }],
+    milestones: [{ d:'2026-06-12', color:'var(--sage)', label:'Deadline decisão' }]
+  },
+  {
+    label: 'D2C Connect', sub: 'Evento de referência',
+    bars: [{ s:'2026-06-10', e:'2026-06-14', color:'var(--lavender)', text:'Connect' }],
+    milestones: []
+  },
+  {
+    label: 'Decisão esteira + espaço', sub: 'Mandaê × Nuvemshop',
+    bars: [{ s:'2026-06-12', e:'2026-06-20', color:'var(--coral)', text:'Decisão final' }],
+    milestones: [{ d:'2026-06-20', color:'var(--coral)', label:'Go / No-go esteira' }]
+  },
+  // Fase 2 — Briefing criativo
+  {
+    label: 'Kick-off briefing criativo MCI', sub: 'MCI + Mandaê + Nuvemshop',
+    bars: [{ s:'2026-06-20', e:'2026-07-07', color:'var(--coral)', text:'Briefing MCI' }],
+    milestones: []
+  },
+  {
+    label: 'Desenvolvimento criativo', sub: 'MCI — conceito + planta',
+    bars: [{ s:'2026-07-07', e:'2026-07-28', color:'var(--coral)', text:'Criação & conceito' }],
+    milestones: [{ d:'2026-07-28', color:'var(--coral)', label:'Aprovação criativo' }]
+  },
+  // Fase 3 — Produção
+  {
+    label: 'Briefing produção cenografia', sub: 'MCI → Fornecedor',
+    bars: [{ s:'2026-07-28', e:'2026-08-10', color:'var(--amber)', text:'Briefing produção' }],
+    milestones: []
+  },
+  {
+    label: 'Produção cenografia & mobiliário', sub: 'Fornecedor',
+    bars: [{ s:'2026-08-10', e:'2026-09-15', color:'var(--amber)', text:'Produção (35 dias)' }],
+    milestones: [{ d:'2026-09-15', color:'var(--amber)', label:'Entrega montagem' }]
+  },
+  {
+    label: 'Brindes & materiais gráficos', sub: 'Prazo mínimo 7 dias',
+    bars: [{ s:'2026-08-10', e:'2026-09-15', color:'var(--indigo)', text:'Produção brindes' }],
+    milestones: []
+  },
+  // Fase 4 — Evento
+  {
+    label: '🎯 D2C Summit 2026', sub: 'Distrito Anhembi · Pavilhão 4',
+    bars: [{ s:'2026-09-30', e:'2026-09-30', color:'var(--dark)', text:'' }],
+    milestones: [{ d:'2026-09-30', color:'var(--dark)', label:'30 set–01 out' }]
+  },
+];
+
+// Build the gantt HTML
+const gantt = document.getElementById('ganttTable');
+const LABEL_PCT = 30; // % width for label column
+
+// Header
+let html = `<div class="gantt-header-row" style="display:grid;grid-template-columns:${LABEL_PCT}% 1fr">
+  <div class="gantt-title-col">Atividade</div>
+  <div class="gantt-months" style="display:flex">`;
+months.forEach((m, i) => {
+  const isCurrent = m.key === 'mai';
+  html += `<div class="gantt-month${isCurrent?' current':''}" style="flex:${m.days}">${m.label}</div>`;
+});
+html += `</div></div>`;
+
+// Today line position (relative to track = 70% of row)
+const todayPct = pct(today);
+
+rows.forEach((row, ri) => {
+  html += `<div class="gantt-row" style="display:grid;grid-template-columns:${LABEL_PCT}% 1fr">
+    <div class="gantt-row-label">${row.label}<small>${row.sub}</small></div>
+    <div class="gantt-track" style="position:relative;padding:0 2px">`;
+
+  // Today line
+  if (ri === 0) {
+    html += `<div class="today-line" style="left:${todayPct}%">
+      <div class="today-label">Hoje</div>
+    </div>`;
+  } else {
+    html += `<div class="today-line" style="left:${todayPct}%"></div>`;
+  }
+
+  // Bars
+  row.bars.forEach(b => {
+    const left = pct(b.s.replace(/-/g,'/'));
+    const width = pctSpan(b.s.replace(/-/g,'/'), b.e.replace(/-/g,'/'));
+    if (width < 0.5) return;
+    html += `<div class="gantt-bar" style="left:${left}%;width:${Math.max(width,1)}%;background:${b.color};opacity:0.88">${b.text}</div>`;
+  });
+
+  // Milestones
+  row.milestones.forEach(m => {
+    const left = pct(m.d.replace(/-/g,'/'));
+    html += `<div class="gantt-milestone" style="left:${left}%;background:${m.color}"></div>
+             <div class="gantt-milestone-label" style="left:${left}%">${m.label}</div>`;
+  });
+
+  html += `</div></div>`;
+});
+
+gantt.innerHTML = html;
+
+// Sidebar active link on scroll
+const sections = document.querySelectorAll('[id]');
+const links = document.querySelectorAll('.sidebar-nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  links.forEach(l => {
+    l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+  });
+}, { passive: true });
+
+// ── COST TABLES ──────────────────────────────────────────────────────────────
+const CAT_COLORS = {
+  'Cenografia':   '#5B6EAD',
+  'Equipamentos': '#7BA7C8',
+  'Brindes':      '#6A9E7F',
+  'A&B':          '#D4826A',
+  'Equipe':       '#8B7FB8',
+  'Mobiliário':   '#C9A96E',
+  'Mat. Gráfico': '#9AAE6A',
+  'Outros':       '#C4C1B8',
+};
+
+const resumo25 = [
+  { cat:'Cenografia',   val:185800 },
+  { cat:'Equipamentos', val:30540  },
+  { cat:'Brindes',      val:19064  },
+  { cat:'A&B',          val:8262   },
+  { cat:'Equipe',       val:3292   },
+  { cat:'Mobiliário',   val:900    },
+  { cat:'Mat. Gráfico', val:400    },
+  { cat:'Outros',       val:220    },
+];
+const total25 = resumo25.reduce((a,r)=>a+r.val,0);
+const maxVal  = Math.max(...resumo25.map(r=>r.val));
+
+const fmtBRL = v => 'R$ ' + v.toLocaleString('pt-BR');
+
+// Resumo 2025
+const r25Body = document.getElementById('resumo25Body');
+resumo25.forEach((r,i) => {
+  const pct = (r.val/total25*100).toFixed(1);
+  const barW = Math.round(r.val/maxVal*120);
+  const tr = document.createElement('tr');
+  if (i%2===1) tr.classList.add('alt');
+  tr.innerHTML = `
+    <td><span class="cat-dot" style="background:${CAT_COLORS[r.cat]}"></span>${r.cat}</td>
+    <td style="text-align:right;font-weight:500">${fmtBRL(r.val)}</td>
+    <td style="text-align:right;color:var(--muted)">${pct}%</td>
+    <td><span class="bar-mini" style="width:${barW}px;background:${CAT_COLORS[r.cat]}"></span></td>`;
+  r25Body.appendChild(tr);
+});
+// Total row
+const totRow = document.createElement('tr');
+totRow.classList.add('total-row');
+totRow.innerHTML = `<td><strong>Total</strong></td><td style="text-align:right"><strong>${fmtBRL(total25)}</strong></td><td style="text-align:right"><strong>100%</strong></td><td></td>`;
+r25Body.appendChild(totRow);
+
+// Itemização 2025
+const itens25 = [
+  ['Cenografia — estrutura + logomarcas','Cenografia',184000],
+  ['Mobiliário — mesas, banquetas, vaso','Cenografia',900],
+  ['LED testeira / TV / parede','Equipamentos',30000],
+  ['Tablets (2 un.)','Equipamentos',540],
+  ['Camisetas 100% algodão (138 un.)','Brindes',9094],
+  ['Sacolas 100% algodão (700 un.)','Brindes',9870],
+  ['A&B — Chopp','A&B',4000],
+  ['A&B — Cápsulas café (200 un. × 2d)','A&B',2800],
+  ['A&B — Copo água 200 ml','A&B',252],
+  ['A&B — Petit four','A&B',208],
+  ['A&B — Máquina café expresso','A&B',210],
+  ['Recepcionistas (2 × 2 dias)','Equipe',2500],
+  ['Garçom (1 × 2 dias)','Equipe',792],
+  ['Fichas "Verdadeiro ou Falso"','Mat. Gráfico',100],
+  ['Placas "Verdadeiro ou Falso"','Mat. Gráfico',300],
+  ['Frete tablets','Outros',220],
+];
+const i25Body = document.getElementById('itens25Body');
+itens25.forEach(([desc,cat,val],i) => {
+  const tr = document.createElement('tr');
+  if (i%2===1) tr.classList.add('alt');
+  tr.innerHTML = `<td>${desc}</td>
+    <td><span class="cat-dot" style="background:${CAT_COLORS[cat]}"></span><span style="color:var(--muted);font-size:12px">${cat}</span></td>
+    <td style="text-align:right;font-weight:500">${fmtBRL(val)}</td>`;
+  i25Body.appendChild(tr);
+});
+const totRow2 = document.createElement('tr');
+totRow2.classList.add('total-row');
+totRow2.innerHTML = `<td><strong>Total</strong></td><td></td><td style="text-align:right"><strong>${fmtBRL(total25)}</strong></td>`;
+i25Body.appendChild(totRow2);
+
+// ── DETALHAMENTO 2026 ─────────────────────────────────────────────────────────
+const itens26 = [
+  { id:'15.1',  tipo:'PREVISÃO',   cat:'Cenografia e Ambientação', item:'CENOGRAFIA',       desc:'Cenografia Mandaê — reserva com base em 2025 reduzindo 10%',   qtd:1,   dias:1, unit:165600.00, total:165600.00 },
+  { id:'15.2',  tipo:'ORÇAMENTO',  cat:'Mobiliário',               item:'MOBILIÁRIO',       desc:'02 mesas bistrôs e 08 banquetas',                               qtd:1,   dias:1, unit:936.00,    total:936.00    },
+  { id:'15.3',  tipo:'PREVISÃO',   cat:'Equipamentos',             item:'EQUIPAMENTOS',     desc:'Equipamentos — verba alocada com base em 2025',                 qtd:1,   dias:1, unit:30000.00,  total:30000.00  },
+  { id:'15.4',  tipo:'ORÇAMENTO',  cat:'Equipamentos',             item:'TABLET',           desc:'2 Tablets',                                                     qtd:2,   dias:1, unit:310.00,    total:620.00    },
+  { id:'15.5',  tipo:'ORÇAMENTO',  cat:'Equipamentos',             item:'TABLET/FRETE',     desc:'Frete tablets',                                                 qtd:1,   dias:1, unit:250.00,    total:250.00    },
+  { id:'15.6',  tipo:'ORÇAMENTO',  cat:'A&B',                      item:'MÁQUINA DE CAFÉ',  desc:'Máquina café expresso',                                         qtd:1,   dias:1, unit:231.00,    total:231.00    },
+  { id:'15.7',  tipo:'ORÇAMENTO',  cat:'A&B',                      item:'CÁPSULAS',         desc:'Cápsulas de café',                                              qtd:200, dias:2, unit:8.00,      total:3200.00   },
+  { id:'15.8',  tipo:'ORÇAMENTO',  cat:'A&B',                      item:'COPO DE ÁGUA',     desc:'Copo de água 200ml (cx com 48 un.)',                            qtd:2,   dias:1, unit:139.00,    total:278.00    },
+  { id:'15.9',  tipo:'ORÇAMENTO',  cat:'A&B',                      item:'PETIT FOURS',      desc:'Petit four',                                                    qtd:2,   dias:2, unit:57.00,     total:228.00    },
+  { id:'15.10', tipo:'ORÇAMENTO',  cat:'A&B',                      item:'GARÇOM',           desc:'Garçom',                                                        qtd:1,   dias:2, unit:436.00,    total:872.00    },
+  { id:'15.11', tipo:'PREVISÃO',   cat:'A&B',                      item:'A&B — CHOPP',      desc:'Verba para chopp com base em 2025',                             qtd:1,   dias:1, unit:4160.00,   total:4160.00   },
+  { id:'15.12', tipo:'PREVISÃO',   cat:'Material Gráfico',         item:'MATERIAL GRÁFICO', desc:'Fichas — verdadeiro ou falso',                                  qtd:10,  dias:1, unit:10.00,     total:100.00    },
+  { id:'15.13', tipo:'PREVISÃO',   cat:'Material Gráfico',         item:'MATERIAL GRÁFICO', desc:'Placas — verdadeiro ou falso',                                  qtd:1,   dias:1, unit:300.00,    total:300.00    },
+  { id:'15.14', tipo:'ORÇAMENTO',  cat:'Brindes',                  item:'SACOLA',           desc:'Sacola 100% algodão 27×33cm (700 un.)',                         qtd:700, dias:1, unit:14.15,     total:9905.00   },
+  { id:'15.15', tipo:'ORÇAMENTO',  cat:'Confecção',                item:'CAMISETAS',        desc:'Camiseta 100% algodão + silk (138 un.) — 7 dias após aprovação',qtd:138, dias:1, unit:65.90,     total:9094.20   },
+  { id:'15.16', tipo:'ORÇAMENTO',  cat:'Equipe / Serviços',        item:'RECEPCIONISTAS',   desc:'Recepcionista — 1 ativação e 1 apoio',                          qtd:2,   dias:2, unit:640.00,    total:2560.00   },
+];
+
+const CAT_COLORS_26 = {
+  'Cenografia e Ambientação': '#5B6EAD',
+  'Mobiliário':               '#C9A96E',
+  'Equipamentos':             '#7BA7C8',
+  'A&B':                      '#D4826A',
+  'Material Gráfico':         '#9AAE6A',
+  'Brindes':                  '#6A9E7F',
+  'Confecção':                '#8B7FB8',
+  'Equipe / Serviços':        '#A8887A',
+};
+
+const d26Body = document.getElementById('detalhe26Body');
+const fmtBRL2 = v => 'R$ ' + v.toLocaleString('pt-BR', {minimumFractionDigits:2, maximumFractionDigits:2});
+
+// Group headers
+let lastCat = null;
+const total26 = itens26.reduce((a,r)=>a+r.total,0);
+
+itens26.forEach((r, i) => {
+  // Category header row
+  if (r.cat !== lastCat) {
+    lastCat = r.cat;
+    const hrow = document.createElement('tr');
+    hrow.innerHTML = `<td colspan="8" style="background:var(--off-white);padding:7px 12px;font-size:10.5px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--hint);border-top:1px solid var(--stone)">
+      <span class="cat-dot" style="background:${CAT_COLORS_26[r.cat]}"></span>${r.cat}
+    </td>`;
+    d26Body.appendChild(hrow);
+  }
+
+  const tr = document.createElement('tr');
+  if (i%2===1) tr.classList.add('alt');
+  const tipoBg = r.tipo === 'PREVISÃO'
+    ? 'background:var(--amber-light);color:var(--amber)'
+    : 'background:var(--sage-light);color:var(--sage)';
+  tr.innerHTML = `
+    <td style="color:var(--hint);font-size:11px">${r.id}</td>
+    <td><span style="font-size:9.5px;font-weight:700;padding:2px 6px;border-radius:4px;${tipoBg};white-space:nowrap">${r.tipo}</span></td>
+    <td>${r.desc}</td>
+    <td style="color:var(--hint);font-size:12px">${r.item}</td>
+    <td style="text-align:right;color:var(--muted)">${r.qtd.toLocaleString('pt-BR')}</td>
+    <td style="text-align:right;color:var(--muted)">${r.dias}</td>
+    <td style="text-align:right;color:var(--muted)">${fmtBRL2(r.unit)}</td>
+    <td style="text-align:right;font-weight:600">${fmtBRL2(r.total)}</td>`;
+  d26Body.appendChild(tr);
+});
+
+// Total row
+const totRow3 = document.createElement('tr');
+totRow3.classList.add('total-row');
+totRow3.innerHTML = `<td colspan="7"><strong>Total Mandaê 2026</strong></td><td style="text-align:right"><strong>${fmtBRL2(total26)}</strong></td>`;
+d26Body.appendChild(totRow3);
+
+// Tab switching
+function switchTab(btn, tabId) {
+  document.querySelectorAll('.cost-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.cost-tab-content').forEach(c => c.style.display='none');
+  btn.classList.add('active');
+  document.getElementById('tab-'+tabId).style.display = 'block';
+}
+</script>
+
+</body>
+</html>
